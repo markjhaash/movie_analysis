@@ -2,3 +2,19 @@ import numpy as np
 import pandas as pd
 import time
 import matplotlib.pyplot as plt
+
+df = pd.DataFrame()
+csv_file = r #enter where the file has been downloded in quotation
+def introduction():
+    msg = """In this project we are going to see the real life application of Python PANDAS by analysing the IMDB movie ratings dataset. 
+    I have downloaded the IMDB movie rating CSV file from www.kaggle.com 
+    There are various sites from which you can download such datasets for data analysis 
+    This project is divided into three parts:
+    Reading 
+    Analysing
+    Visualizing"""
+
+    for x in msg:
+        print(x,end="")
+        time.sleep(0.002)
+    wait = input('Press any key to continue.....')
