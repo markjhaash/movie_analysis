@@ -18,3 +18,32 @@ def introduction():
         print(x,end="")
         time.sleep(0.002)
     wait = input('Press any key to continue.....')
+
+def read():
+    df=pd.read_csv(csv_file,low_memory=False)
+    print(df)
+
+def clear():
+    for x in range(65):
+        print()
+
+def data_analysis_menu():
+     df=pd.read_csv(csv_file)
+     while True:
+         clear()
+         print('\n\nData Analysis Menu')
+         print('1. Show Columns')
+         print('2. Show Top Rows')
+         print('3. Show Bottom Rows')
+         print('4. Show Specific Columns')
+         print('5. Add a New Record')
+         print('6. Add a New Column')
+         print('7. Delete a Column')
+         print('8. Delete a Record')
+         print('9. Update a Record')
+         print('10. Rating Wise Report')
+         print('11. Language Wise Report')
+         print('12. Data Summary')
+         print('13. Back to Main Menu')
+         user_input = int(input('Enter Your Choice:'))
+
