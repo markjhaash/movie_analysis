@@ -47,3 +47,97 @@ def data_analysis_menu():
          print('13. Back to Main Menu')
          user_input = int(input('Enter Your Choice:'))
 
+         if user_input == 1:
+             print(df.columns)
+             wait = input()
+
+         elif user_input == 2:
+             n = int(input('Enter total number of top rows to be displayed:'))
+             print(df.head(n))
+             wait = input()
+
+         elif user_input == 3:
+             n = int(input('Enter total number of bottom rows to be displayed'))
+             print(df.tail(n))
+             wait = input()
+
+         elif user_input == 4:
+             print(df.columns)
+             col_name = input('Enter Column Name that you want to print')
+
+         elif user_input == 5:
+             a = input('Enter Index Number:')
+             b = input('Enter Movie Name:')
+             c = input('Enter Movie Overview')
+             d =  int(input('Enter Movie Language'))
+             e = int(input('Enter Vote Count'))
+             f = int(input('Enter Vote Average'))
+             data = {'index':a,'title':b,'overview':c,'language':d,'vote_count':e,'vote_average':f}
+             df = df.append(data,ignore_index=True)
+             print(df)
+             wait = input()
+         elif user_input == 6:
+             col_name = input('Enter new column name:')
+             col_value = int(input('Enter default column value:'))
+             df[col_name]=col_value
+             print(df)
+             print('\n\n\n Press any key to continue.....')
+             wait = input()
+
+         elif user_input == 7:
+             col_name=input('Enter column Name to delete:')
+             del df[col_name]
+             print(df)
+             print('\n\n\n Press any key to continue.....' )
+             wait = input()
+
+         elif user_input == 8:
+             index_no = int(input('Enter the Index Number that You want to delete:'))
+             df=df.drop(df.index[index_no])
+             print(df)
+             print('\n\n\n Press any key to continue.....')
+             wait = input()
+
+         elif user_input == 9:
+             index_no = int(input('Enter the Index Number that You to update:'))
+             col_name = input('Enter the column name that you want to update')
+             print("Before updation:",df[col_name][index_no])
+             updated_val =  input('Enter the new value you want to update')
+             df[col_name][index_no] = updated_val
+             print("After updation:",df[col_name][index_no])
+             print('\n\n\n Press any key to continue.....')
+             wait = input()
+         elif user_input == 10:
+             g = df.sort_values(by=['vote_average','vote_count'],ascending=False)
+             clear()
+             print('Top 20 movies based on rating ')
+             print('-'*120)
+             print(g.head(20))
+             print('\n\n\n Press any key to continue....')
+             wait = input()
+
+         elif user_input == 11:
+             df1 = df.original_language.unique()
+             print('Available Language:',df1)
+             print('\n\n')
+             lang1 = input('Enter Language Type')
+             df1=df[df.original_language == lang1]
+             clear()
+             print('Top 20 Movies Based on Rating | Language :',lang1)
+             print('-'*120)
+             print(df1.sort_values(by = 'vote_average', ascending=False).head(20))
+             print('\n\n\n Press any key to continue....')
+             wait = input()
+
+         elif user_input == 12:
+             print(df.describe())
+             print('\n\n\n Press any key to continue....')
+             wait = input()
+
+         elif user_input == 13:
+             break
+
+         else:
+             print("Enter valid choice")
+
+
